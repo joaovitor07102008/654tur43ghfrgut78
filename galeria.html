@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quebra-Cabeça Interativo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .puzzle-container {
+      background: #1e1e1e;
+      border-radius: 20px;
+      padding: 40px 30px 30px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .puzzle-container h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #ffffffd0;
+      transition: color 0.3s ease;
+    }
+
+    .home-button:hover {
+      color: #ffffff;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .slide {
+      display: none;
+      text-align: center;
+    }
+
+    .slide img {
+      max-width: 90%;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);
+    }
+
+    .slide p, .slide textarea {
+      margin: 10px auto;
+      width: 85%;
+    }
+
+    .slide textarea {
+      height: 70px;
+      border-radius: 10px;
+      border: none;
+      padding: 12px;
+      resize: none;
+      font-size: 15px;
+      font-family: inherit;
+      background: #2e2e2e;
+      color: #fff;
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .nav label {
+      background: #3498db;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .nav label:hover {
+      background: #2980b9;
+    }
+
+    .progress {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .progress span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #555;
+      margin: 0 5px;
+      transition: background 0.3s ease;
+    }
+
+    #s1:checked ~ .slide1,
+    #s2:checked ~ .slide2,
+    #s3:checked ~ .slide3,
+    #s4:checked ~ .slide4 {
+      display: block;
+    }
+
+    #s1:checked ~ .progress .p1,
+    #s2:checked ~ .progress .p2,
+    #s3:checked ~ .progress .p3,
+    #s4:checked ~ .progress .p4 {
+      background: #fff;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="puzzle-container">
+
+  <!-- Botão Casinha (voltar à página inicial) -->
+  <button class="home-button" onclick="window.location.href='alternativas.html'" title="Voltar à página inicial">
+    🏠
+  </button>
+
+  <h1>🧩 Montando o Quebra-Cabeça</h1>
+
+  <input type="radio" id="s1" name="slide" checked>
+  <input type="radio" id="s2" name="slide">
+  <input type="radio" id="s3" name="slide">
+  <input type="radio" id="s4" name="slide">
+
+  <div class="slide slide1">
+    <img src="https://images.unsplash.com/photo-1605460375648-278bcbd579a6" alt="Imagem 1">
+    <p><strong>Fonte:</strong> Unsplash</p>
+    <textarea placeholder="Descreva a primeira peça..."></textarea>
+    <div class="nav">
+      <label for="s2">➡️ Próxima</label>
+    </div>
+  </div>
+
+  <div class="slide slide2">
+    <img src="https://images.unsplash.com/photo-1602526216034-df9a52c46cb1" alt="Imagem 2">
+    <p><strong>Fonte:</strong> Unsplash</p>
+    <textarea placeholder="Descreva a segunda peça..."></textarea>
+    <div class="nav">
+      <label for="s1">⬅️ Voltar</label>
+      <label for="s3">➡️ Próxima</label>
+    </div>
+  </div>
+
+  <div class="slide slide3">
+    <img src="https://images.unsplash.com/photo-1621587087645-57cfaebbe3e1" alt="Imagem 3">
+    <p><strong>Fonte:</strong> Unsplash</p>
+    <textarea placeholder="Descreva a terceira peça..."></textarea>
+    <div class="nav">
+      <label for="s2">⬅️ Voltar</label>
+      <label for="s4">➡️ Próxima</label>
+    </div>
+  </div>
+
+  <div class="slide slide4">
+    <img src="https://images.unsplash.com/photo-1622495892222-78b745518c4b" alt="Imagem 4">
+    <p><strong>Fonte:</strong> Unsplash</p>
+    <textarea placeholder="Descreva a peça final..."></textarea>
+    <div class="nav">
+      <label for="s3">⬅️ Voltar</label>
+    </div>
+  </div>
+
+  <div class="progress">
+    <span class="p1"></span>
+    <span class="p2"></span>
+    <span class="p3"></span>
+    <span class="p4"></span>
+  </div>
+
+</div>
+
+</body>
+</html>
